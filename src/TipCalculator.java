@@ -12,7 +12,7 @@ public class TipCalculator
         int tip = scan.nextInt();
         scan.nextLine();
         double tipDecimal = (double) tip / 100;
-        List<String> i = new ArrayList<>();
+        List<String> i = new ArrayList<>(); // got it from google i dont remeber where
         double total = 0;
         System.out.print("Enter a cost in dollars and cents, e.g. 12.50: ");
         double cost = scan.nextDouble();
@@ -28,11 +28,15 @@ public class TipCalculator
             cost = scan.nextDouble();
             total += cost;
             scan.nextLine();
+            if (cost == -1){
+                break; // gained from stack overflow
+            }
             System.out.print("What was the Item: ");
             item = scan.nextLine();
             i.add(item);
         }
         total ++;
+        // I got the Math.round function online on stackoverflow
         double totaltip = (double) Math.round((total * tipDecimal) * 100) / 100;
         double totalbill = (double) Math.round((total + totaltip) * 100) / 100;
         double costBeforeTip = (double) Math.round((total / people) * 100) /100;
@@ -48,9 +52,7 @@ public class TipCalculator
         System.out.println("Total cost per person: $" + totalPerPerson);
         System.out.println("-------------------------------------------");
         System.out.println("Items ordered: ");
-        System.out.println(i);
-
-
+        i.forEach(System.out::println); // got from stack overflow
 
     }
 }
