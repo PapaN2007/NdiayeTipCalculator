@@ -22,14 +22,20 @@ public class TipCalculator
             cost = scan.nextDouble();
             total += cost;
         }
-
+        total ++;
         double totaltip = total * tipDecimal;
         double totalbill = total + totaltip;
+        double costBeforeTip = total / people;
+        double tipPerPerson = totaltip / people;
+        double totalPerPerson = totalbill /people;
         System.out.println("----------------------------------------");
         System.out.println("Total bill before tip: " + total);
-        System.out.println("Tip Percentage: " + tip);
+        System.out.println("Tip Percentage: " + tip + "%");
         System.out.println("Total tip: $" + totaltip);
         System.out.println("Total bill with tip: " + totalbill);
+        System.out.println("Per Person cost before tip: " + costBeforeTip);
+        System.out.println("Tip per person: " + tipPerPerson);
+        System.out.println("Total cost per person: " + totalPerPerson);
 
 
 
